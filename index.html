@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karthikeyan T</title>
+  <link rel="stylesheet" href="./style/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-wrapper">
+      <div class="theme-toggle-container">
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- Moon icon (visible in light mode) -->
+            <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            <!-- Sun icon (visible in dark mode) -->
+            <path class="sun" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+      <nav>
+        <input class="hidden" type="checkbox" id="menuToggle">
+        <label class="menu-btn" for="menuToggle">
+          <div class="menu"></div>
+          <div class="menu"></div>
+          <div class="menu"></div>
+        </label>
+        <div class="nav-container">
+          <ul class="nav-tabs">
+            <li class="nav-tab"><a href="index.html">Home</a></li>
+            <li class="nav-tab"><a href="about.html">About Me</a></li>
+            <li class="nav-tab"><a href="skills.html">Skills</a></li>
+            <li class="nav-tab"><a href="cert.html">Certifications</a></li>
+            <li class="nav-tab"><a href="#experience">Experience</a></li>
+            <li class="nav-tab"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-heading">Hello, I'm KarthiKeyan Thangaraj</h1>
+          <p class="hero-subheading">
+            Web Developer | Designer | Tech Enthusiast
+          </p>
+          <div class="button-group">
+            <a href="#!" class="btn btn-primary">🚀 Get Started</a>
+            <a href="#!" class="btn btn-outline">✨ Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      // Save preference to localStorage
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+    });
+
+    // Check for saved user preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-tab a').forEach(link => {
+      link.addEventListener('click', () => {
+        const checkbox = document.getElementById('menuToggle');
+        if (checkbox.checked) checkbox.checked = false;
+      });
+    });
+  </script>
+</body>
+</html>
